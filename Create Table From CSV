@@ -1,0 +1,27 @@
+CREATE DATABASE BikeShare;
+GO
+
+USE BikeShare;
+GO
+DROP TABLE CapitalBikeShare;
+
+CREATE TABLE CapitalBikeShare (
+	ID CHAR(100)
+	,Duration FLOAT
+	,StartDate DATETIME2(7)
+	,EndDate DATETIME2(7)
+	,StartStationNumber VARCHAR(100)
+	,StartStation VARCHAR(100)
+	,EndStationNumber VARCHAR(100)
+	,EndStation VARCHAR(100)
+	
+	);
+GO
+
+BULK INSERT CapitalBikeShare
+FROM 'C:\Users\user\Documents\CapitalBikeShare.csv' WITH (
+		FIELDTERMINATOR = ','
+		,ROWTERMINATOR = '\n'
+		,FIRSTROW = 2
+		);
+GO
